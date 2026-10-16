@@ -558,33 +558,34 @@
 
                 <div class="lg:col-span-7">
                     <div class="p-8 rounded-3xl bg-brandCard border border-brandBorder shadow-2xl">
+                        <!-- Formspree Action Endpoint -->
                         <form id="b2b-form" action="https://formspree.io/f/xqpewyne" method="POST" onsubmit="handleFormSubmit(event)" class="space-y-6">
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div class="space-y-2">
                                     <label class="block text-xs font-mono uppercase text-slate-300">Full Name *</label>
-                                    <input type="text" required placeholder="Rohan Sharma" class="w-full bg-brandSurface border border-brandBorder rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sutra-500">
+                                    <input type="text" name="name" required placeholder="Rohan Sharma" class="w-full bg-brandSurface border border-brandBorder rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sutra-500">
                                 </div>
                                 <div class="space-y-2">
                                     <label class="block text-xs font-mono uppercase text-slate-300">Organization / College / Brand *</label>
-                                    <input type="text" required placeholder="IIT Hyderabad / Tech Corp" class="w-full bg-brandSurface border border-brandBorder rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sutra-500">
+                                    <input type="text" name="organization" required placeholder="IIT Hyderabad / Tech Corp" class="w-full bg-brandSurface border border-brandBorder rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sutra-500">
                                 </div>
                             </div>
 
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div class="space-y-2">
                                     <label class="block text-xs font-mono uppercase text-slate-300">Work Email *</label>
-                                    <input type="email" required placeholder="rohan@organization.com" class="w-full bg-brandSurface border border-brandBorder rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sutra-500">
+                                    <input type="email" name="email" required placeholder="rohan@organization.com" class="w-full bg-brandSurface border border-brandBorder rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sutra-500">
                                 </div>
                                 <div class="space-y-2">
                                     <label class="block text-xs font-mono uppercase text-slate-300">WhatsApp Number *</label>
-                                    <input type="tel" required placeholder="+91 98765 43210" class="w-full bg-brandSurface border border-brandBorder rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sutra-500">
+                                    <input type="tel" name="phone" required placeholder="+91 98765 43210" class="w-full bg-brandSurface border border-brandBorder rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sutra-500">
                                 </div>
                             </div>
 
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div class="space-y-2">
                                     <label class="block text-xs font-mono uppercase text-slate-300">Select Segment *</label>
-                                    <select id="form-segment" class="w-full bg-brandSurface border border-brandBorder rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sutra-500">
+                                    <select id="form-segment" name="segment" class="w-full bg-brandSurface border border-brandBorder rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sutra-500">
                                         <option value="Corporate / Enterprise Office">Corporate / Enterprise Office</option>
                                         <option value="IIT / NIT / College Fest or Club">IIT / NIT / College Fest or Club</option>
                                         <option value="Restaurant / Cafe / Hospitality">Restaurant / Cafe / Hospitality</option>
@@ -594,7 +595,7 @@
                                 </div>
                                 <div class="space-y-2">
                                     <label class="block text-xs font-mono uppercase text-slate-300">Estimated Quantity *</label>
-                                    <select class="w-full bg-brandSurface border border-brandBorder rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sutra-500">
+                                    <select name="quantity" class="w-full bg-brandSurface border border-brandBorder rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sutra-500">
                                         <option value="30 – 50 Pieces">30 – 50 Pieces</option>
                                         <option value="50 – 200 Pieces">50 – 200 Pieces</option>
                                         <option value="200 – 500 Pieces">200 – 500 Pieces</option>
@@ -606,11 +607,11 @@
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 <div class="space-y-2">
                                     <label class="block text-xs font-mono uppercase text-slate-300">Target Delivery Deadline *</label>
-                                    <input type="date" required class="w-full bg-brandSurface border border-brandBorder rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sutra-500">
+                                    <input type="date" name="deadline" required class="w-full bg-brandSurface border border-brandBorder rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sutra-500">
                                 </div>
                                 <div class="space-y-2">
                                     <label class="block text-xs font-mono uppercase text-slate-300">Branding Preference</label>
-                                    <select class="w-full bg-brandSurface border border-brandBorder rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sutra-500">
+                                    <select name="branding" class="w-full bg-brandSurface border border-brandBorder rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sutra-500">
                                         <option value="DTF Sticker Print">DTF Sticker Print</option>
                                         <option value="Computerized Embroidery">Precision Computerized Embroidery</option>
                                         <option value="Both">Both / Undecided (Need Advice)</option>
@@ -620,10 +621,10 @@
 
                             <div class="space-y-2">
                                 <label class="block text-xs font-mono uppercase text-slate-300">Project Brief & Custom Notes</label>
-                                <textarea rows="3" placeholder="Describe your design idea, apparel color preferences, and custom requirements..." class="w-full bg-brandSurface border border-brandBorder rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sutra-500"></textarea>
+                                <textarea name="message" rows="3" placeholder="Describe your design idea, apparel color preferences, and custom requirements..." class="w-full bg-brandSurface border border-brandBorder rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sutra-500"></textarea>
                             </div>
 
-                            <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-sutra-600 to-sutra-700 text-white font-bold text-sm shadow-xl shadow-sutra-600/30 hover:from-sutra-500 hover:to-sutra-600 transition-all">
+                            <button type="submit" id="submit-btn" class="w-full py-4 rounded-xl bg-gradient-to-r from-sutra-600 to-sutra-700 text-white font-bold text-sm shadow-xl shadow-sutra-600/30 hover:from-sutra-500 hover:to-sutra-600 transition-all">
                                 Get My Factory Quote & Free Mockup →
                             </button>
                         </form>
@@ -676,10 +677,37 @@
             document.getElementById('quote-form').scrollIntoView({ behavior: 'smooth' });
         }
 
-        function handleFormSubmit(event) {
+        // Async form submission via Formspree while preserving success UI
+        async function handleFormSubmit(event) {
             event.preventDefault();
-            document.getElementById('b2b-form').style.display = 'none';
-            document.getElementById('form-success').classList.remove('hidden');
+            const form = event.target;
+            const submitBtn = document.getElementById('submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.innerText = "Sending Request...";
+
+            const data = new FormData(form);
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    form.style.display = 'none';
+                    document.getElementById('form-success').classList.remove('hidden');
+                } else {
+                    alert("Oops! There was a problem submitting your form. Please try contacting us directly via WhatsApp.");
+                    submitBtn.disabled = false;
+                    submitBtn.innerText = "Get My Factory Quote & Free Mockup →";
+                }
+            } catch (error) {
+                alert("Network error. Please check your connection or contact us directly on WhatsApp at +91 8919620922.");
+                submitBtn.disabled = false;
+                submitBtn.innerText = "Get My Factory Quote & Free Mockup →";
+            }
         }
     </script>
 </body>
