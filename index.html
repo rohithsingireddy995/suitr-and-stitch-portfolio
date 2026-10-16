@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sutra & Stitch | Style Beyond Basic - Custom Apparel Manufacturing</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        sutra: {
+                            50: '#fdf8f6',
+                            100: '#fbeee9',
+                            200: '#f5d6cc',
+                            300: '#edb5a1',
+                            400: '#e2886a',
+                            500: '#d4603b',
+                            600: '#b84825',
+                            700: '#98381c',
+                            800: '#7a301b',
+                            900: '#652a1b',
+                            950: '#36140d',
+                        },
+                        brandDark: '#0f0d0c',
+                        brandSurface: '#191513',
+                        brandCard: '#221d1a',
+                        brandBorder: '#38302b'
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        display: ['Syne', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #0f0d0c;
+            color: #f5f2ef;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, h5, h6, .font-display {
+            font-family: 'Syne', sans-serif;
+        }
+        .hero-pattern {
+            background-image: radial-gradient(rgba(212, 96, 59, 0.12) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        .glass-panel {
+            background: rgba(25, 21, 19, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 96, 59, 0.15);
+        }
+        .glow-effect {
+            box-shadow: 0 0 50px -10px rgba(212, 96, 59, 0.25);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f0d0c;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #38302b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d4603b;
+        }
+    </style>
+</head>
+<body class="bg-brandDark text-slate-100 antialiased selection:bg-sutra-500 selection:text-white">
+
+    <!-- Sticky Navigation Bar -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-brandBorder/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-sutra-600 to-sutra-800 flex items-center justify-center shadow-lg shadow-sutra-600/30 overflow-hidden border border-sutra-400/30 group-hover:scale-105 transition-transform">
+                    <img src="SUTRA-and-STITCH.png" alt="Sutra & Stitch Logo" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <span class="font-display font-bold text-xl tracking-tight text-white group-hover:text-sutra-400 transition-colors">SUTRA & STITCH</span>
+                    <span class="block text-[10px] tracking-widest text-sutra-400 font-mono uppercase">Style Beyond Basic</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#portfolio" class="hover:text-sutra-400 transition-colors">Categories</a>
+                <a href="#capabilities" class="hover:text-sutra-400 transition-colors">Fabric & Tech</a>
+                <a href="#why-us" class="hover:text-sutra-400 transition-colors">Why Us</a>
+                <a href="#process" class="hover:text-sutra-400 transition-colors">Process</a>
+            </nav>
+
+            <!-- Action Buttons -->
+            <div class="hidden md:flex items-center gap-4">
+                <a href="#quote-form" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-sutra-600 to-sutra-700 text-white font-semibold text-sm shadow-lg shadow-sutra-600/25 hover:from-sutra-500 hover:to-sutra-600 hover:scale-[1.02] active:scale-[0.98] transition-all">
+                    <span>Get a Custom Quote</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg bg-brandCard border border-brandBorder text-slate-300 hover:text-white">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-b border-brandBorder px-6 py-6 space-y-4">
+            <a href="#portfolio" class="block text-base font-medium text-slate-200 hover:text-sutra-400">Categories</a>
+            <a href="#capabilities" class="block text-base font-medium text-slate-200 hover:text-sutra-400">Fabric & Tech</a>
+            <a href="#why-us" class="block text-base font-medium text-slate-200 hover:text-sutra-400">Why Us</a>
+            <a href="#process" class="block text-base font-medium text-slate-200 hover:text-sutra-400">Process</a>
+            <div class="pt-4 border-t border-brandBorder">
+                <a href="#quote-form" class="block w-full text-center py-3 rounded-xl bg-sutra-600 text-white font-semibold text-sm shadow-md">Get a Custom Quote</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative hero-pattern pt-20 pb-28 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-brandDark/50 to-brandDark pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Left Column -->
+                <div class="lg:col-span-7 space-y-8">
+                    <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-sutra-950/80 border border-sutra-500/30 text-sutra-300 text-xs font-mono uppercase tracking-widest glow-effect">
+                        <span class="w-2 h-2 rounded-full bg-sutra-500 animate-pulse"></span>
+                        Direct-From-Factory Custom Manufacturing
+                    </div>
+                    
+                    <h1 class="font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl tracking-tight text-white leading-[1.1]">
+                        Style Beyond <span class="text-transparent bg-clip-text bg-gradient-to-r from-sutra-400 to-sutra-600">Basic.</span>
+                    </h1>
+                    
+                    <p class="text-lg sm:text-xl text-slate-300 max-w-2xl font-normal leading-relaxed">
+                        Custom clothing should be far more than standard fabric with a logo. From raw yarn (<span class="text-sutra-400 font-semibold">Sutra</span>) to the final seam (<span class="text-sutra-400 font-semibold">Stitch</span>), we engineer high-performance apparel for corporate enterprises, premier IITs & NITs, hospitality teams, and modern clothing brands.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <a href="#quote-form" class="px-8 py-4 rounded-xl bg-gradient-to-r from-sutra-600 to-sutra-700 text-white font-semibold text-base shadow-xl shadow-sutra-600/30 hover:from-sutra-500 hover:to-sutra-600 hover:scale-105 active:scale-95 transition-all flex items-center gap-3">
+                            <span>Get a Custom Quote</span>
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </a>
+                        <a href="#portfolio" class="px-8 py-4 rounded-xl bg-brandCard border border-brandBorder text-slate-200 font-semibold text-base hover:bg-brandSurface hover:border-sutra-500/50 transition-all flex items-center gap-2">
+                            <span>Explore Categories</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                        </a>
+                    </div>
+
+                    <!-- Trust indicators -->
+                    <div class="pt-8 border-t border-brandBorder/60 grid grid-cols-3 gap-6">
+                        <div>
+                            <div class="font-display font-bold text-2xl text-white">₹200</div>
+                            <div class="text-xs text-slate-400 font-mono mt-0.5">Starting Bulk Rate / pc</div>
+                        </div>
+                        <div>
+                            <div class="font-display font-bold text-2xl text-white">100%</div>
+                            <div class="text-xs text-slate-400 font-mono mt-0.5">Direct Factory Quality</div>
+                        </div>
+                        <div>
+                            <div class="font-display font-bold text-2xl text-white">Zero</div>
+                            <div class="text-xs text-slate-400 font-mono mt-0.5">Middleman Defects</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Visual Showcase Card -->
+                <div class="lg:col-span-5">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="absolute -inset-1.5 bg-gradient-to-r from-sutra-600 to-amber-600 rounded-3xl blur-xl opacity-30 animate-pulse"></div>
+                        <div class="relative rounded-3xl bg-brandCard border border-brandBorder p-6 shadow-2xl overflow-hidden">
+                            <div class="flex items-center justify-between mb-6 pb-4 border-b border-brandBorder">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-sutra-950 flex items-center justify-center border border-sutra-500/30 overflow-hidden">
+                                        <img src="SUTRA-and-STITCH.png" alt="Logo" class="w-full h-full object-cover">
+                                    </div>
+                                    <div>
+                                        <h3 class="font-display font-bold text-sm text-white">Sutra & Stitch Studio</h3>
+                                        <p class="text-xs text-sutra-400 font-mono">Precision Craftsmanship</p>
+                                    </div>
+                                </div>
+                                <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-[11px] font-mono border border-emerald-500/25">Live Preview</span>
+                            </div>
+
+                            <div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-brandSurface group mb-6 border border-brandBorder">
+                                <img src="https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&q=80&w=800" alt="Custom Apparel Production" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute inset-0 bg-gradient-to-t from-brandDark/90 via-transparent to-transparent flex items-end p-5">
+                                    <div>
+                                        <span class="text-[10px] font-mono uppercase tracking-wider text-sutra-400 bg-sutra-950/80 px-2 py-0.5 rounded border border-sutra-500/30">Custom Fabrication</span>
+                                        <h4 class="text-white font-display font-bold text-lg mt-1">Engineered for IIT Fest & Corporate Uniforms</h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="p-3 rounded-xl bg-brandSurface border border-brandBorder flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-sutra-600/20 text-sutra-400 flex items-center justify-center font-bold text-xs">01</div>
+                                    <div class="text-xs font-medium text-slate-300">DTF & Embroidery Options</div>
+                                </div>
+                                <div class="p-3 rounded-xl bg-brandSurface border border-brandBorder flex items-center gap-3">
+                                    <div class="w-8 h-8 rounded-lg bg-sutra-600/20 text-sutra-400 flex items-center justify-center font-bold text-xs">02</div>
+                                    <div class="text-xs font-medium text-slate-300">Strict Event Deadlines</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Sutra & Stitch (Value Proposition) -->
+    <section id="why-us" class="py-20 bg-brandSurface/50 border-y border-brandBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-mono uppercase tracking-widest text-sutra-400 bg-sutra-950/80 px-3 py-1 rounded-full border border-sutra-500/30">The Advantage</span>
+                <h2 class="font-display font-bold text-3xl sm:text-4xl text-white mt-4">From Raw Yarn to Final Seam</h2>
+                <p class="text-slate-400 mt-3 text-base">We move away from generic mass-market apparel. Here is why top academic institutions, tech enterprises, and hospitality leaders choose us.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="p-6 rounded-2xl bg-brandCard border border-brandBorder hover:border-sutra-500/50 transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-sutra-600/10 border border-sutra-500/30 flex items-center justify-center text-sutra-400 mb-5 group-hover:bg-sutra-600 group-hover:text-white transition-all">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">Direct Manufacturing</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Complete quality control from raw yarn (<span class="text-sutra-400">Sutra</span>) to final tailoring (<span class="text-sutra-400">Stitch</span>), eliminating third-party defects and middlemen.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-brandCard border border-brandBorder hover:border-sutra-500/50 transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-sutra-600/10 border border-sutra-500/30 flex items-center justify-center text-sutra-400 mb-5 group-hover:bg-sutra-600 group-hover:text-white transition-all">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">Style Beyond Basic</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">We source and custom-blend premium cottons and performance fabrics engineered to resist fading, shrinking, and wear.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-brandCard border border-brandBorder hover:border-sutra-500/50 transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-sutra-600/10 border border-sutra-500/30 flex items-center justify-center text-sutra-400 mb-5 group-hover:bg-sutra-600 group-hover:text-white transition-all">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">Advanced Branding</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Long-lasting DTF sticker prints, high-density screen graphics, and precision embroidery that stay sharp wash after wash.</p>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-brandCard border border-brandBorder hover:border-sutra-500/50 transition-all group">
+                    <div class="w-12 h-12 rounded-xl bg-sutra-600/10 border border-sutra-500/30 flex items-center justify-center text-sutra-400 mb-5 group-hover:bg-sutra-600 group-hover:text-white transition-all">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h3 class="font-display font-bold text-lg text-white mb-2">Reliable Turnaround</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed">Strict delivery timelines for time-sensitive corporate launch events, hospitality openings, and university campus fests.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio & Product Showcase -->
+    <section id="portfolio" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+            <div>
+                <span class="text-xs font-mono uppercase tracking-widest text-sutra-400 bg-sutra-950/80 px-3 py-1 rounded-full border border-sutra-500/30">Portfolio & Showcase</span>
+                <h2 class="font-display font-bold text-3xl sm:text-4xl text-white mt-4">Crafted for Every Segment</h2>
+            </div>
+            <p class="text-slate-400 max-w-md mt-4 md:mt-0 text-sm">Explore our specialized apparel lines built for high-energy campus fests, fast-paced restaurants, and sleek corporate environments.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Segment 1: Corporate -->
+            <div class="rounded-3xl bg-brandCard border border-brandBorder overflow-hidden group hover:border-sutra-500/50 transition-all flex flex-col justify-between">
+                <div>
+                    <div class="relative h-64 overflow-hidden bg-brandSurface">
+                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=800" alt="Corporate Wear" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-brandDark/80 backdrop-blur px-3 py-1 rounded-full text-xs font-mono text-sutra-400 border border-brandBorder">
+                            Corporate & Enterprise
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <h3 class="font-display font-bold text-xl text-white">Executive Pique Polos & Shirts</h3>
+                        <p class="text-sm text-slate-400">Clean, modern cuts with subtle branding and executive comfort. Say goodbye to boxy promotional giveaways.</p>
+                        <div class="space-y-2 pt-2 border-t border-brandBorder/60 text-xs text-slate-300">
+                            <div class="flex justify-between"><span class="text-slate-500 font-mono">Fabric GSM:</span> <span class="font-medium">220 – 240 GSM Pique</span></div>
+                            <div class="flex justify-between"><span class="text-slate-500 font-mono">Branding:</span> <span class="font-medium">Precision Computerized Embroidery</span></div>
+                            <div class="flex justify-between"><span class="text-slate-500 font-mono">Bulk Price:</span> <span class="text-sutra-400 font-bold">₹240 – ₹430 / pc</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button onclick="selectProduct('Corporate / Enterprise Office')" class="w-full py-3 rounded-xl bg-brandSurface border border-brandBorder text-slate-200 font-semibold text-xs uppercase tracking-wider hover:bg-sutra-600 hover:text-white hover:border-sutra-600 transition-all">
+                        Configure Quote for This →
+                    </button>
+                </div>
+            </div>
+
+            <!-- Segment 2: IITs & NITs -->
+            <div class="rounded-3xl bg-brandCard border border-brandBorder overflow-hidden group hover:border-sutra-500/50 transition-all flex flex-col justify-between">
+                <div>
+                    <div class="relative h-64 overflow-hidden bg-brandSurface">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&q=80&w=800" alt="College Fests" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-brandDark/80 backdrop-blur px-3 py-1 rounded-full text-xs font-mono text-sutra-400 border border-brandBorder">
+                            IITs, NITs & Colleges
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <h3 class="font-display font-bold text-xl text-white">Oversized Fest & Campus Tees</h3>
+                        <p class="text-sm text-slate-400">Trendy fits, vibrant fest prints, and durable daily campus wear engineered for high-energy cultural and tech fests.</p>
+                        <div class="space-y-2 pt-2 border-t border-brandBorder/60 text-xs text-slate-300">
+                            <div class="flex justify-between"><span class="text-slate-500 font-mono">Fabric GSM:</span> <span class="font-medium">180 – 260 GSM Combed Cotton</span></div>
+                            <div class="flex justify-between"><span class="text-slate-500 font-mono">Branding:</span> <span class="font-medium">DTF Sticker / High-Density Print</span></div>
+                            <div class="flex justify-between"><span class="text-slate-500 font-mono">Bulk Price:</span> <span class="text-sutra-400 font-bold">₹200 – ₹440 / pc</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button onclick="selectProduct('IIT / NIT / College Fest or Club')" class="w-full py-3 rounded-xl bg-brandSurface border border-brandBorder text-slate-200 font-semibold text-xs uppercase tracking-wider hover:bg-sutra-600 hover:text-white hover:border-sutra-600 transition-all">
+                        Configure Quote for This →
+                    </button>
+                </div>
+            </div>
+
+            <!-- Segment 3: Restaurant & Hospitality -->
+            <div class="rounded-3xl bg-brandCard border border-brandBorder overflow-hidden group hover:border-sutra-500/50 transition-all flex flex-col justify-between">
+                <div>
+                    <div class="relative h-64 overflow-hidden bg-brandSurface">
+                        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=800" alt="Hospitality Uniforms" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-brandDark/80 backdrop-blur px-3 py-1 rounded-full text-xs font-mono text-sutra-400 border border-brandBorder">
+                            Hospitality & Cafe
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <h3 class="font-display font-bold text-xl text-white">Barista & Restaurant Uniforms</h3>
+                        <p class="text-sm text-slate-400">Breathable, stain-resistant, and high-durability fabrics engineered to withstand heat, hustle, and long active shifts.</p>
+                        <div class="space-y-2 pt-2 border-t border-brandBorder/60 text-xs text-slate-300">
+                            <div class="flex justify-between"><span class="text-slate-500 font-mono">Fabric GSM:</span> <span class="font-medium">200 – 220 GSM Cotton-Lycra</span></div>
+                            <div class="flex justify-between"><span class="text-slate-500 font-mono">Branding:</span> <span class="font-medium">Precision Embroidery / DTF</span></div>
+                            <div class="flex justify-between"><span class="text-slate-500 font-mono">Bulk Price:</span> <span class="text-sutra-400 font-bold">₹210 – ₹380 / pc</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button onclick="selectProduct('Restaurant / Cafe / Hospitality')" class="w-full py-3 rounded-xl bg-brandSurface border border-brandBorder text-slate-200 font-semibold text-xs uppercase tracking-wider hover:bg-sutra-600 hover:text-white hover:border-sutra-600 transition-all">
+                        Configure Quote for This →
+                    </button>
+                </div>
+            </div>
+
+            <!-- Segment 4: Sports & Activewear -->
+            <div class="rounded-3xl bg-brandCard border border-brandBorder overflow-hidden group hover:border-sutra-500/50 transition-all flex flex-col justify-between">
+                <div>
+                    <div class="relative h-64 overflow-hidden bg-brandSurface">
+                        <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=800" alt="Activewear" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-brandDark/80 backdrop-blur px-3 py-1 rounded-full text-xs font-mono text-sutra-400 border border-brandBorder">
+                            Sports & Activewear
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <h3 class="font-display font-bold text-xl text-white">Performance Dry-Fit Jerseys</h3>
+                        <p class="text-sm text-slate-400">Lightweight, rapid sweat-wicking activewear designed for sports academies, marathons, and inter-college tournaments.</p>
+                        <div class="space-y-2 pt-2 border-t border-brandBorder/60 text-xs text-slate-300">
+                            <div class="flex justify-between"><span class="text-slate-500 font-mono">Fabric GSM:</span> <span class="font-medium">140 – 180 GSM Micro-Dot Mesh</span></div>
+                            <div class="flex justify-between"><span class="text-slate-500 font-mono">Branding:</span> <span class="font-medium">DTF Sticker / Sublimation</span></div>
+                            <div class="flex justify-between"><span class="text-slate-500 font-mono">Bulk Price:</span> <span class="text-sutra-400 font-bold">₹200 – ₹340 / pc</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button onclick="selectProduct('School / Sports Academy')" class="w-full py-3 rounded-xl bg-brandSurface border border-brandBorder text-slate-200 font-semibold text-xs uppercase tracking-wider hover:bg-sutra-600 hover:text-white hover:border-sutra-600 transition-all">
+                        Configure Quote for This →
+                    </button>
+                </div>
+            </div>
+
+            <!-- Segment 5: Streetwear & Retail -->
+            <div class="rounded-3xl bg-brandCard border border-brandBorder overflow-hidden group hover:border-sutra-500/50 transition-all flex flex-col justify-between">
+                <div>
+                    <div class="relative h-64 overflow-hidden bg-brandSurface">
+                        <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&q=80&w=800" alt="Streetwear" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-brandDark/80 backdrop-blur px-3 py-1 rounded-full text-xs font-mono text-sutra-400 border border-brandBorder">
+                            Streetwear & D2C Brands
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <h3 class="font-display font-bold text-xl text-white">Heavyweight Retail Boxy Tees</h3>
+                        <p class="text-sm text-slate-400">Retail-ready white-label manufacturing with custom pigment wash, heavy loopknit cotton, and custom woven tags.</p>
+                        <div class="space-y-2 pt-2 border-t border-brandBorder/60 text-xs text-slate-300">
+                            <div class="flex justify-between"><span class="text-slate-500 font-mono">Fabric GSM:</span> <span class="font-medium">260 – 300 GSM Heavy Loopknit</span></div>
+                            <div class="flex justify-between"><span class="text-slate-500 font-mono">Branding:</span> <span class="font-medium">Puff Print / Custom Woven Tags</span></div>
+                            <div class="flex justify-between"><span class="text-slate-500 font-mono">Bulk Price:</span> <span class="text-sutra-400 font-bold">₹280 – ₹445 / pc</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button onclick="selectProduct('Streetwear / Custom Clothing Brand')" class="w-full py-3 rounded-xl bg-brandSurface border border-brandBorder text-slate-200 font-semibold text-xs uppercase tracking-wider hover:bg-sutra-600 hover:text-white hover:border-sutra-600 transition-all">
+                        Configure Quote for This →
+                    </button>
+                </div>
+            </div>
+
+            <!-- Segment 6: Winter Hoodies -->
+            <div class="rounded-3xl bg-brandCard border border-brandBorder overflow-hidden group hover:border-sutra-500/50 transition-all flex flex-col justify-between">
+                <div>
+                    <div class="relative h-64 overflow-hidden bg-brandSurface">
+                        <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&q=80&w=800" alt="Hoodies" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 left-4 bg-brandDark/80 backdrop-blur px-3 py-1 rounded-full text-xs font-mono text-sutra-400 border border-brandBorder">
+                            Winter & Premium Apparel
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-4">
+                        <h3 class="font-display font-bold text-xl text-white">Heavyweight Brushed Fleece Hoodies</h3>
+                        <p class="text-sm text-slate-400">Luxurious 350+ GSM brushed fleece hoodies built for cold-weather campus fests, corporate retreats, and winter drops.</p>
+                        <div class="space-y-2 pt-2 border-t border-brandBorder/60 text-xs text-slate-300">
+                            <div class="flex justify-between"><span class="text-slate-500 font-mono">Fabric GSM:</span> <span class="font-medium">350+ GSM Brushed Fleece</span></div>
+                            <div class="flex justify-between"><span class="text-slate-500 font-mono">Branding:</span> <span class="font-medium">High-Density Embroidery / DTF</span></div>
+                            <div class="flex justify-between"><span class="text-slate-500 font-mono">Bulk Price:</span> <span class="text-sutra-400 font-bold">₹580 – ₹760 / pc</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <button onclick="selectProduct('IIT / NIT / College Fest or Club')" class="w-full py-3 rounded-xl bg-brandSurface border border-brandBorder text-slate-200 font-semibold text-xs uppercase tracking-wider hover:bg-sutra-600 hover:text-white hover:border-sutra-600 transition-all">
+                        Configure Quote for This →
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Manufacturing Capabilities & Branding Tech -->
+    <section id="capabilities" class="py-20 bg-brandSurface/40 border-y border-brandBorder">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-mono uppercase tracking-widest text-sutra-400 bg-sutra-950/80 px-3 py-1 rounded-full border border-sutra-500/30">Customization & Specs</span>
+                <h2 class="font-display font-bold text-3xl sm:text-4xl text-white mt-4">Precision Built to Your Brief</h2>
+                <p class="text-slate-400 mt-3 text-base">Select your exact fabric GSM, branding technique, and MOQs with transparent factory pricing.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <!-- Branding Technique Card 1: DTF -->
+                <div class="p-8 rounded-3xl bg-brandCard border border-brandBorder flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="px-3 py-1 rounded-full bg-sutra-600/20 text-sutra-400 font-mono text-xs border border-sutra-500/30">Standard Base Rate</span>
+                            <span class="text-xs font-mono text-slate-400">Full Color Photographic</span>
+                        </div>
+                        <h3 class="font-display font-bold text-2xl text-white mb-3">High-Definition DTF Sticker Printing</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">Ultra-vibrant, stretch-resistant Direct-to-Film transfers. Perfect for complex multi-color student fest graphics, gradient logos, and fast turnaround orders.</p>
+                        <ul class="space-y-3 text-sm text-slate-300 mb-6">
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sutra-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Zero color limitations or gradient fade</li>
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-sutra-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Crack-resistant soft-hand feel wash after wash</li>
+                        </ul>
+                    </div>
+                    <div class="p-4 rounded-xl bg-brandSurface border border-brandBorder flex items-center justify-between">
+                        <span class="text-xs font-mono text-slate-400">Included in Base Pricing</span>
+                        <span class="text-sutra-400 font-mono font-bold">₹0 Extra / pc</span>
+                    </div>
+                </div>
+
+                <!-- Branding Technique Card 2: Embroidery -->
+                <div class="p-8 rounded-3xl bg-brandCard border border-brandBorder flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-6">
+                            <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 font-mono text-xs border border-amber-500/30">Premium Texture</span>
+                            <span class="text-xs font-mono text-slate-400">High-Stitch Density</span>
+                        </div>
+                        <h3 class="font-display font-bold text-2xl text-white mb-3">Precision Computerized Embroidery</h3>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-6">High-stitch-count satin and 3D puff embroidery. Ideal for executive corporate polos, fine dining restaurant uniforms, and premium academic club crests.</p>
+                        <ul class="space-y-3 text-sm text-slate-300 mb-6">
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Timeless executive tactile texture</li>
+                            <li class="flex items-center gap-2"><svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Permanent thread colorfastness</li>
+                        </ul>
+                    </div>
+                    <div class="p-4 rounded-xl bg-brandSurface border border-brandBorder flex items-center justify-between">
+                        <span class="text-xs font-mono text-slate-400">Stitch Rate Addition</span>
+                        <span class="text-amber-400 font-mono font-bold">+₹30 / pc</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Flow -->
+    <section id="process" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-brandBorder">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-xs font-mono uppercase tracking-widest text-sutra-400 bg-sutra-950/80 px-3 py-1 rounded-full border border-sutra-500/30">Seamless Journey</span>
+            <h2 class="font-display font-bold text-3xl sm:text-4xl text-white mt-4">From Concept to Doorstep in 4 Steps</h2>
+            <p class="text-slate-400 mt-3 text-base">A transparent, hassle-free manufacturing workflow designed for busy organizers and procurement heads.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="p-6 rounded-2xl bg-brandCard border border-brandBorder relative">
+                <div class="text-4xl font-display font-extrabold text-sutra-500/30 mb-4">01</div>
+                <h3 class="font-display font-bold text-lg text-white mb-2">Consult & GSM Selection</h3>
+                <p class="text-sm text-slate-400">Share your requirement and target date. We recommend the ideal fabric weight, fit, and branding execution.</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-brandCard border border-brandBorder relative">
+                <div class="text-4xl font-display font-extrabold text-sutra-500/30 mb-4">02</div>
+                <h3 class="font-display font-bold text-lg text-white mb-2">Digital Mockup & Sample</h3>
+                <p class="text-sm text-slate-400">Our design team delivers digital 3D mockups within 24 hours. Physical sample swatches shipped on request.</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-brandCard border border-brandBorder relative">
+                <div class="text-4xl font-display font-extrabold text-sutra-500/30 mb-4">03</div>
+                <h3 class="font-display font-bold text-lg text-white mb-2">Direct Factory Production</h3>
+                <p class="text-sm text-slate-400">Automated cutting, precision DTF/embroidery, bio-washing, and strict 3-stage quality inspection.</p>
+            </div>
+            <div class="p-6 rounded-2xl bg-brandCard border border-brandBorder relative">
+                <div class="text-4xl font-display font-extrabold text-sutra-500/30 mb-4">04</div>
+                <h3 class="font-display font-bold text-lg text-white mb-2">On-Time Doorstep Delivery</h3>
+                <p class="text-sm text-slate-400">Steam-ironed, individually poly-bagged, and sorted by size—dispatched via express logistics straight to you.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Inquiry Section -->
+    <section id="quote-form" class="py-24 bg-brandSurface/60 border-t border-brandBorder relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-xs font-mono uppercase tracking-widest text-sutra-400 bg-sutra-950/80 px-3 py-1 rounded-full border border-sutra-500/30">Start Your Order</span>
+                    <h2 class="font-display font-bold text-3xl sm:text-4xl text-white">Ready to Upgrade Beyond Basic?</h2>
+                    <p class="text-slate-300 text-sm leading-relaxed">
+                        Whether you’re outfitting a 50-person restaurant crew, organizing a 5,000-student IIT fest, or launching a streetwear label—get a factory-direct quote within 4 business hours.
+                    </p>
+
+                    <div class="space-y-4 pt-4 border-t border-brandBorder">
+                        <div class="flex items-center gap-3 text-sm text-slate-300">
+                            <div class="w-8 h-8 rounded-lg bg-sutra-600/20 text-sutra-400 flex items-center justify-center font-bold">✓</div>
+                            <span>Free Digital Mockup in 24 Hours</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm text-slate-300">
+                            <div class="w-8 h-8 rounded-lg bg-sutra-600/20 text-sutra-400 flex items-center justify-center font-bold">✓</div>
+                            <span>Size-Set Samples Available for Try-Ons</span>
+                        </div>
+                        <div class="flex items-center gap-3 text-sm text-slate-300">
+                            <div class="w-8 h-8 rounded-lg bg-sutra-600/20 text-sutra-400 flex items-center justify-center font-bold">✓</div>
+                            <span>GST Invoice & Pan-India Express Shipping</span>
+                        </div>
+                    </div>
+
+                    <div class="pt-6 border-t border-brandBorder space-y-3">
+                        <div class="text-xs font-mono text-sutra-400 uppercase tracking-widest">Direct Contact Desk</div>
+                        <div class="text-sm text-slate-300 font-medium">Phone / WhatsApp: <a href="tel:+918919620922" class="text-white hover:text-sutra-400">+91 8919620922</a></div>
+                        <div class="text-sm text-slate-300 font-medium">Email: <a href="mailto:sutra-n-stitch@stylebyond.com" class="text-white hover:text-sutra-400">sutra-n-stitch@stylebyond.com</a></div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7">
+                    <div class="p-8 rounded-3xl bg-brandCard border border-brandBorder shadow-2xl">
+                        <form id="b2b-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label class="block text-xs font-mono uppercase text-slate-300">Full Name *</label>
+                                    <input type="text" required placeholder="Rohan Sharma" class="w-full bg-brandSurface border border-brandBorder rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sutra-500">
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="block text-xs font-mono uppercase text-slate-300">Organization / College / Brand *</label>
+                                    <input type="text" required placeholder="IIT Hyderabad / Tech Corp" class="w-full bg-brandSurface border border-brandBorder rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sutra-500">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label class="block text-xs font-mono uppercase text-slate-300">Work Email *</label>
+                                    <input type="email" required placeholder="rohan@organization.com" class="w-full bg-brandSurface border border-brandBorder rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sutra-500">
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="block text-xs font-mono uppercase text-slate-300">WhatsApp Number *</label>
+                                    <input type="tel" required placeholder="+91 98765 43210" class="w-full bg-brandSurface border border-brandBorder rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sutra-500">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label class="block text-xs font-mono uppercase text-slate-300">Select Segment *</label>
+                                    <select id="form-segment" class="w-full bg-brandSurface border border-brandBorder rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sutra-500">
+                                        <option value="Corporate / Enterprise Office">Corporate / Enterprise Office</option>
+                                        <option value="IIT / NIT / College Fest or Club">IIT / NIT / College Fest or Club</option>
+                                        <option value="Restaurant / Cafe / Hospitality">Restaurant / Cafe / Hospitality</option>
+                                        <option value="School / Sports Academy">School / Sports Academy</option>
+                                        <option value="Streetwear / Custom Clothing Brand">Streetwear / Custom Clothing Brand</option>
+                                    </select>
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="block text-xs font-mono uppercase text-slate-300">Estimated Quantity *</label>
+                                    <select class="w-full bg-brandSurface border border-brandBorder rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sutra-500">
+                                        <option value="30 – 50 Pieces">30 – 50 Pieces</option>
+                                        <option value="50 – 200 Pieces">50 – 200 Pieces</option>
+                                        <option value="200 – 500 Pieces">200 – 500 Pieces</option>
+                                        <option value="500 – 2,000+ Pieces">500 – 2,000+ Pieces</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div class="space-y-2">
+                                    <label class="block text-xs font-mono uppercase text-slate-300">Target Delivery Deadline *</label>
+                                    <input type="date" required class="w-full bg-brandSurface border border-brandBorder rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sutra-500">
+                                </div>
+                                <div class="space-y-2">
+                                    <label class="block text-xs font-mono uppercase text-slate-300">Branding Preference</label>
+                                    <select class="w-full bg-brandSurface border border-brandBorder rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sutra-500">
+                                        <option value="DTF Sticker Print">DTF Sticker Print</option>
+                                        <option value="Computerized Embroidery">Precision Computerized Embroidery</option>
+                                        <option value="Both">Both / Undecided (Need Advice)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="space-y-2">
+                                <label class="block text-xs font-mono uppercase text-slate-300">Project Brief & Custom Notes</label>
+                                <textarea rows="3" placeholder="Describe your design idea, apparel color preferences, and custom requirements..." class="w-full bg-brandSurface border border-brandBorder rounded-xl p-3 text-sm text-white focus:outline-none focus:border-sutra-500"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-sutra-600 to-sutra-700 text-white font-bold text-sm shadow-xl shadow-sutra-600/30 hover:from-sutra-500 hover:to-sutra-600 transition-all">
+                                Get My Factory Quote & Free Mockup →
+                            </button>
+                        </form>
+
+                        <div id="form-success" class="hidden text-center py-12 space-y-4">
+                            <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto text-2xl border border-emerald-500/30">✓</div>
+                            <h3 class="font-display font-bold text-2xl text-white">Quote Request Received!</h3>
+                            <p class="text-sm text-slate-300 max-w-md mx-auto">Thank you. Our manufacturing desk at Kukatpally, Hyderabad will review your brief and send your formal factory quote and digital mockup to your WhatsApp within 4 business hours.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brandDark border-t border-brandBorder py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-sutra-600 flex items-center justify-center overflow-hidden border border-sutra-400/30">
+                    <img src="SUTRA-and-STITCH.png" alt="Logo" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <span class="font-display font-bold text-white text-sm">SUTRA & STITCH</span>
+                    <span class="block text-[10px] text-sutra-400 font-mono">Style Beyond Basic • Kukatpally, Hyderabad</span>
+                </div>
+            </div>
+
+            <div class="text-xs text-slate-400 font-mono space-y-1">
+                <div>Branch: Kukatpally, Hyderabad, Telangana</div>
+                <div>Contact: <a href="tel:+918919620922" class="text-sutra-400 hover:underline">+91 8919620922</a> | <a href="mailto:sutra-n-stitch@stylebyond.com" class="text-sutra-400 hover:underline">sutra-n-stitch@stylebyond.com</a></div>
+            </div>
+
+            <div class="text-xs text-slate-400 font-mono">
+                Website Prepared by <a href="https://instagram.com/rohith_singireddy" target="_blank" class="text-sutra-400 hover:underline font-semibold">Instagram @rohith_singireddy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JS Logic -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        function selectProduct(segment) {
+            document.getElementById('form-segment').value = segment;
+            document.getElementById('quote-form').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            document.getElementById('b2b-form').style.display = 'none';
+            document.getElementById('form-success').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
